@@ -1,28 +1,39 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Card from "./Card";
+
+
+import { BrowserRouter, Route, Switch} from "react-router-dom";
+
 import Booking from "./Booking";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar"
 import Form from "./Form";
 import Pagenotfound from "./Pagenotfound";
+import App from "./App";
+import Adminform from "./Adminform";
 import "./Style.css";
+import AdminLogin from "./Auth/AdminLogin";
 
-const Approuter = () => {
+
+const Approute = ()=>{
+
     return (
-        <div className="body">
-                <BrowserRouter>
-                < Navbar />
-                <Switch>
-                <Route path="/Card" component={Card} exact   ></Route>
-                <Route path="/Booking" component={Booking} exact   ></Route>
-                <Route path="/Form" component={Form} exact   ></Route>
-                <Route component={Pagenotfound}></Route>
-                </Switch>
-                </BrowserRouter>
-                
-        </div>
+        <div>
+             
+            <BrowserRouter>
 
+                 <Navbar/>
+                 <Switch>
+                 <Route path="/" component={App} exact ></Route>
+                 <Route path="/Booking" component= {Booking} exact></Route>
+                 <Route path="/Form" exact component= {Form}></Route>
+                 <Route path="/Admin" exact component= {Adminform}></Route> 
+                 <Route path="/AdminLogin" exact component= {AdminLogin}></Route>
+                 <Route component={Pagenotfound}></Route>
+                 </Switch>
+            </BrowserRouter>
+            
+              
+        </div>
     )
 }
 
-export default Approuter;
+export default Approute;

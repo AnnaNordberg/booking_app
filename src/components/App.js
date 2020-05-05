@@ -1,30 +1,42 @@
-/* import React from "react";
+import React, { Component } from "react";
 import Card from "./Card";
-import Form from "./Form";
-import Nav from "./Navbar";
+import axios from "axios";
 import "./Style.css";
 
 
-const App = () => {
-    return (
-        <div className="body">
-            < Nav />
-            <div className="AppDiv">
-                <div className="CardDiv">
-                    <Card />
-                    <Card />
-                    <Card />
-                </div>
 
-             <div className="FormDiv">   
-                <Form />
-                </div>
+class App extends Component {
 
 
-            </div>
+      state = {
+            products: []
+      }
 
-        </div>
-    )
+      async componentDidMount() {
+
+            const res = await axios.get("http://localhost:1337/products")
+
+            console.log(res.data);
+            this.setState({ products: res.data })
+      }
+
+
+      render() {
+            return (
+                  <div>
+                        <div className="AppDiv">
+
+                              {this.state.products.map((product) =>
+                                    <Card
+                                          key={product.id}
+                                          title={product.title}
+                                          price={product.price}
+                                          description={product.description}
+                                          image={"http://localhost:1337" + product.image.url}
+                                    />
+                              )}
+                        </div>
+                  </div>)
+      }
 }
-
-export default App; */
+export default App;

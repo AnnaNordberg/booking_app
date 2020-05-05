@@ -3,18 +3,21 @@
     width:90%;
     margin-right: auto;
     margin-left: auto;
+    display: flex;
+    background-color: rgb(246, 246, 246);
+    
     
     
     
 }
 
-.CardDiv {
-    margin-top:40px;
-    display: flex;
+ .CardDiv {
+    margin:40px;
     flex-direction: row;
     justify-content: space-evenly;
+    
 }
-
+ 
 
 
 input {
