@@ -7,7 +7,7 @@ const Navbar = ()=>{
 
     return(
         <nav className={"navbar navbar-expand-lg navbar-light bg-light"}>
-  <Link className={"navbar-brand"} to="/">Navbar</Link>
+  <Link className={"btn btn-primary btn-nav"} to="/">BALI</Link>
   <button className={"navbar-toggler"} type={"button"} >
     <span className={"navbar-toggler-icon"}></span>
   </button>

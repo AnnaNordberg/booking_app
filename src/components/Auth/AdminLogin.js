@@ -58,23 +58,23 @@ onSubmitLogin(e){
              
  
          {this.state.condition  && <form   onSubmit={this.onSubmitLogin.bind(this)}>
-                    <input type="email"   name="email"/>
-                    <input type="password" name="password" />
-                    <button>Login</button>
+                    <input type="email"   name="email" placeholder="your email"/>
+                    <input type="password" name="password" placeholder="your password" />
+                    
                 </form>}
                
            {!this.state.condition && <form onSubmit={this.onSubmitRegister.bind(this)}>
-                    <input type="text" name="username"/>
-                     <input type="email" name="email" />
-                    <input type="password" name="password" />
+                    <input type="text" name="username" placeholder="chose a username"/>
+                     <input type="email" name="email" placeholder="enter your email" />
+                    <input type="password" name="password" placeholder="chose a password" />
  
-                    <button>Register</button>
+                    
  
                 </form>}
  
 {/* <button onClick={this.onClickRegister.bind(this)}>Don't have an account?</button> */}
-<button onClick={this.onClickLogin.bind(this)}>Login</button>
-<button onClick={this.onClickRegister.bind(this)}>Register</button>
+<button className="btn btn-primary" onClick={this.onClickLogin.bind(this)}>Login</button>
+<button className="btn btn-primary" onClick={this.onClickRegister.bind(this)}>Register</button>
                
  
             </div>

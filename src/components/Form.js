@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Style.css";
 
 class Form extends Component {
 
@@ -49,7 +50,7 @@ class Form extends Component {
                     <input type={"text"} placeholder={"ange ditt name"} onChange={this.handleOnChangeName}></input>
                     <input type={"text"} placeholder={"ange önskat datum"} onChange={this.handleOnChangeTime}></input>
                     <input type={"number"} placeholder={"ange telefon nummer"} onChange={this.handleOnChangeMobile}></input>
-                    <button className="button" type={"submit"} onSubmit={this.handleOnSubmit}>Bekräfta</button>
+                    <button className="btn btn-primary" type={"submit"} onSubmit={this.handleOnSubmit}>Confirm</button>
                 </form>
                 
 

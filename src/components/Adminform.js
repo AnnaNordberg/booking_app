@@ -37,10 +37,10 @@ class Adminform extends Component {
       <div>
         <form onSubmit={this.onSubmitToApi.bind(this)}>
           <input type="text" name="title" placeholder="title" />
-          <input type="text" name="description" placeholder="description" />
+          <input type="text" name="description" placeholder="description..." />
           <input type="number" name="price" placeholder="price" />
           <input type="file" name="file" onChange={this.eventChange.bind(this)}/>
-          <button>Spara</button>
+          <button className="btn btn-primary">Spara</button>
         </form>
       </div>
     );

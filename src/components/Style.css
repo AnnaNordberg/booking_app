@@ -1,10 +1,15 @@
+.body {
+    background-color: rgb(246, 246, 246);
+}
+
 .AppDiv {
     font-family: Arial, Helvetica, sans-serif;
     width:90%;
     margin-right: auto;
     margin-left: auto;
     display: flex;
-    background-color: rgb(246, 246, 246);
+    flex-wrap: wrap;
+
     
     
     
@@ -12,8 +17,10 @@
 }
 
  .CardDiv {
+   
     margin:40px;
     flex-direction: row;
+    flex: 1 0 25%;
     justify-content: space-evenly;
     
 }
@@ -28,10 +35,22 @@ input {
     margin:20px;
 }
 
-.button {
-    display: flex;
-    flex-direction: column;
+.btn-nav {
     border-radius: 25px;
-    padding: 8px;
-    margin:20px;
+    padding: 12px;
+    border:none;
+   
+}
+
+.btn {
+    background: rgb(94, 187, 187);
+    border:none;
+    margin-right: 10px;
+}
+
+.navbar-brand {
+    background: rgb(94, 187, 187);
+    border-radius: 25px;
+    padding: 10px;
+
 }

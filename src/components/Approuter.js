@@ -11,12 +11,13 @@ import App from "./App";
 import Adminform from "./Adminform";
 import "./Style.css";
 import AdminLogin from "./Auth/AdminLogin";
+import AdminPage from "./AdminPage";
 
 
 const Approute = ()=>{
 
     return (
-        <div>
+        <div className="body">
              
             <BrowserRouter>
 
@@ -27,6 +28,7 @@ const Approute = ()=>{
                  <Route path="/Form" exact component= {Form}></Route>
                  <Route path="/Admin" exact component= {Adminform}></Route> 
                  <Route path="/AdminLogin" exact component= {AdminLogin}></Route>
+                 <Route path="/AdminPage" exact component={AdminPage}></Route>
                  <Route component={Pagenotfound}></Route>
                  </Switch>
             </BrowserRouter>

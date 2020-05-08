@@ -23,8 +23,9 @@ class App extends Component {
 
       render() {
             return (
-                  <div>
-                        <div className="AppDiv">
+                  <div className="AppDiv">
+                        
+                              
 
                               {this.state.products.map((product) =>
                                     <Card
@@ -36,7 +37,8 @@ class App extends Component {
                                     />
                               )}
                         </div>
-                  </div>)
+                        
+                  )
       }
 }
 export default App;
