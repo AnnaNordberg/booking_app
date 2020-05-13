@@ -168,7 +168,6 @@ class UpdateProducts extends Component {
 
             {Object.keys(this.state.chosenProduct).length > 0 && (
               <div className={"chosenproduct"}>
-                <h5>Choosen Product</h5>
                 <form onSubmit={this.onSubmitToApi.bind(this)}>
                   <img
                     src={
