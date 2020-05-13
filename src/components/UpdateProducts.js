@@ -29,10 +29,10 @@ class UpdateProducts extends Component {
   }
 
   onImgUploadChange(e) {
-    // Put image in state
+    
     this.setState({ image: e.target.files[0] });
 
-    // Preview image
+  //Förhandsvisningen av bild till produkt
     let previewOutput = document.querySelector(".card_img-top");
     previewOutput.src = URL.createObjectURL(e.target.files[0]);
   }
@@ -63,9 +63,8 @@ class UpdateProducts extends Component {
         console.log("Well done");
         console.log(response);
         console.log(response.status);
-        // this.setState({ chosenProduct: [] });
         if (response.status === 200) {
-          this.props.dataFromEditProducts("default", response.status, "Product deleted!"); // Skicka tillbaks användare till admin-landing
+          this.props.dataFromEditProducts("default", response.status, "Product deleted!");
         }
       })
       .catch((error) => {
@@ -84,18 +83,14 @@ class UpdateProducts extends Component {
 
     const fileInput = document.querySelector("#img__upload");
 
-    // console.log(e.target.elements.id.value);
-
     if (!fileInput.disabled) {
-      // fileInput is disabled if we don't want to update image.
-      // Upload image
       console.log("input isnt disabled");
 
       const formData = new FormData();
       formData.append("files", this.state.image);
-      formData.append("ref", "product"); // Refererar till table
-      formData.append("refId", e.target.elements.id.value); // Hämtat post-id från vår post vi skapade.
-      formData.append("field", "image"); // Refererar till column i vår table
+      formData.append("ref", "product"); // Refererar till table/tabell i strapi
+      formData.append("refId", e.target.elements.id.value); // Hämtat id från post
+      formData.append("field", "image"); // Refererar till kolumn 
 
       axios({
         method: "post",
@@ -106,7 +101,7 @@ class UpdateProducts extends Component {
         },
       })
         .then((response) => {
-          // Handle success
+          // Handle success / Samma som upload
           console.log("Picture uploaded to post, Well done");
           console.log(response);
           console.log(response.status);
@@ -131,112 +126,109 @@ class UpdateProducts extends Component {
       },
     })
       .then((response) => {
-        // Handle success
+        // Handle success / Samma som upload
         console.log("Post created, Well done");
         console.log(response);
         console.log(response.status);
-        // this.setState({ status: response.status });
         if (response.status === 200) {
-          this.props.dataFromEditProducts("default", response.status, "Produkt ändrad"); // Skicka tillbaks användare till admin-landing
+          this.props.dataFromEditProducts("default", response.status, "Product updated");
         }
       })
       .catch((error) => {
         console.log("An error occurred", error);
-        // console.log(data);
       });
   }
 
   render() {
     return (
-    <div className="body">
-      <div className="AppDiv">  
-      <div className="UpdateProductsDiv">
-          <h2 className="postHeaderText">Or update excisting products</h2>
-        {/* Products */}
-        {Object.keys(this.state.chosenProduct).length === 0 && (
-          <div className={"products_preview"}>
-            {this.state.products.map((product) => (
-              <div className={"card__preview"} key={product.id}>
-                <div className={"card__body"}>
-                  <h3 className={"card__title"}>{product.title}</h3>
-                  <p className={"card__price"}>{product.price}kr</p>
-                  <button
-                    className={"button__success btn btn-primary"}
-                    onClick={this.onClickChosenProduct.bind(this)}
-                    data-key={product.id}
-                  >
-                    Edit
+      <div className="body">
+        <div className="AppDiv">
+          <div className="UpdateProductsDiv">
+            <h2 className="postHeaderText">Or update excisting products</h2>
+            {Object.keys(this.state.chosenProduct).length === 0 && (
+              <div className={"products_preview"}>
+                {this.state.products.map((product) => (
+                  <div className={"card__preview"} key={product.id}>
+                    <div className={"card__body"}>
+                      <h3 className={"card__title"}>{product.title}</h3>
+                      <p className={"card__price"}>{product.price}kr</p>
+                      <button
+                        className={"button__success btn btn-primary"}
+                        onClick={this.onClickChosenProduct.bind(this)}
+                        data-key={product.id}
+                      >
+                        Edit
                   </button>
-                </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        )}
+            )}
 
-        {/* Chosen product */}
-        {Object.keys(this.state.chosenProduct).length > 0 && (
-          <div className={"chosenproduct"}>
-            <h5>Choosen Product</h5>
-            <form onSubmit={this.onSubmitToApi.bind(this)}>
-              <img
-                src={
-                  "http://localhost:1337" + this.state.chosenProduct.image.url
-                }
-                className={"card_img-top"}
-                alt={"People"}
-                style={{ width: "35rem" ,height: "25rem" }}
-              />
-              <label
-                htmlFor={"img__upload"}
-                className={"button__secondary btn btn-primary"}
-                onClick={this.onClickEnableUpload.bind(this)}
-              >
-                Change image
+
+            {Object.keys(this.state.chosenProduct).length > 0 && (
+              <div className={"chosenproduct"}>
+                <h5>Choosen Product</h5>
+                <form onSubmit={this.onSubmitToApi.bind(this)}>
+                  <img
+                    src={
+                      "http://localhost:1337" + this.state.chosenProduct.image.url
+                    }
+                    className={"card_img-top"}
+                    alt={"People"}
+                    style={{ width: "35rem", height: "25rem" }}
+                  />
+                  <label
+                    htmlFor={"img__upload"}
+                    className={"button__secondary btn btn-primary"}
+                    onClick={this.onClickEnableUpload.bind(this)}
+                  >
+                    Change image
               </label>
-              <input
-                id={"img__upload"}
-                type="file"
-                name="file"
-                onChange={this.onImgUploadChange.bind(this)}
-                disabled
-              />
-              <input
-                type="hidden"
-                name="id"
-                value={this.state.chosenProduct.id}
-              />
-              <input type="text" name="title" placeholder={"Enter new title"} />
-              <textarea className="updateProductsTextarea"
-                rows="5"
-                type="text"
-                name="description"
-                placeholder={"Enter new description"}
-              />
-              <input
-                type="number"
-                name="price"
-                placeholder={"Enter new price"}
-              />
+                  <input
+                    id={"img__upload"}
+                    type="file"
+                    name="file"
+                    onChange={this.onImgUploadChange.bind(this)}
+                    disabled
+                  />
+                  <input
+                    type="hidden"
+                    name="id"
+                    value={this.state.chosenProduct.id}
+                  />
+                  <input type="text" name="title" placeholder={"Enter new title"} />
+                  <textarea className="updateProductsTextarea"
+                    rows="5"
+                    type="text"
+                    name="description"
+                    placeholder={"Enter new description"}
+                  />
+                  <input
+                    type="number"
+                    name="price"
+                    placeholder={"Enter new price"}
+                  />
 
-              <button className={"button__success btn btn-primary"}>Save Changes</button>
-            </form>
-            <button
-              className={"button__secondary btn btn-primary"}
-              onClick={this.onClickAbort.bind(this)}
-            >
-              Go back
+                  <button className={"button__success btn btn-primary"}>Save Changes</button>
+                </form>
+                <button
+                  className={"button__secondary btn btn-primary"}
+                  onClick={this.onClickAbort.bind(this)}
+                >
+                  Go back
             </button>
-            <button
-              className={"button__warning btn btn-primary"}
-              onClick={this.onClickDelete.bind(this)}
-              data-key={this.state.chosenProduct.id}
-            >
-              Delete
+                <button
+                  className={"button__warning btn btn-primary"}
+                  onClick={this.onClickDelete.bind(this)}
+                  data-key={this.state.chosenProduct.id}
+                >
+                  Delete
             </button>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-      </div>
+        </div>
       </div>
     );
   }

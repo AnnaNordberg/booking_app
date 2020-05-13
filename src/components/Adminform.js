@@ -46,7 +46,7 @@ class Adminform extends Component {
           <input type="file" name="file" onChange={this.eventChange.bind(this)}/>
           <button className="btn btn-primary">Post</button>
         </form>
-        <h3>Update a product</h3>
+        
         </div>
       </div>
       </div>

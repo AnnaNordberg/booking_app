@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import AdminProfile from "./Auth/AdminProfile";
 import AdminLogin from "./Auth/AdminLogin";
-import UpdateProducts from "./UpdateProducts";
+
 
 class AdminPage extends Component {
     state = {
