@@ -34,14 +34,21 @@ class Adminform extends Component {
 
   render() {
     return (
-      <div>
+      <div className="body">
+      <div className="AppDiv">
+      <div className="AdminFormDiv"> 
+        <h1>Hello Admin!</h1>
+        <h3>Post a new product to the website</h3>
         <form onSubmit={this.onSubmitToApi.bind(this)}>
           <input type="text" name="title" placeholder="title" />
           <input type="text" name="description" placeholder="description..." />
           <input type="number" name="price" placeholder="price" />
           <input type="file" name="file" onChange={this.eventChange.bind(this)}/>
-          <button className="btn btn-primary">Spara</button>
+          <button className="btn btn-primary">Post</button>
         </form>
+        <h3>Update a product</h3>
+        </div>
+      </div>
       </div>
     );
   }

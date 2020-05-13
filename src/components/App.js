@@ -23,6 +23,7 @@ class App extends Component {
 
       render() {
             return (
+                 <div className="body">
                   <div className="AppDiv">
                         
                               
@@ -37,6 +38,8 @@ class App extends Component {
                                     />
                               )}
                         </div>
+                        </div>
+                        
                         
                   )
       }

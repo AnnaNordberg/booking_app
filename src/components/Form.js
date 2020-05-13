@@ -44,6 +44,7 @@ class Form extends Component {
 
     render() {
         return (
+            <div className="body">
             <div className="AppDiv">
                 <h1>Book an appointment here!</h1>
                 <form onSubmit={this.handleOnSubmit}>
@@ -57,6 +58,7 @@ class Form extends Component {
                 <div>  {this.state.name}</div>
                 <div>  {this.state.appointmentTime}</div>
                 <div>  {this.state.mobile}</div>
+            </div>
             </div>
         )
     }

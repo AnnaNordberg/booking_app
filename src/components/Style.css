@@ -1,5 +1,8 @@
 .body {
     background-color: rgb(246, 246, 246);
+    display: flex;
+    flex-wrap: wrap;
+    
 }
 
 .AppDiv {
@@ -10,8 +13,6 @@
     display: flex;
     flex-wrap: wrap;
 
-    
-    
     
     
 }
@@ -45,12 +46,49 @@ input {
 .btn {
     background: rgb(94, 187, 187);
     border:none;
-    margin-right: 10px;
+    margin: 5px;
 }
 
 .navbar-brand {
     background: rgb(94, 187, 187);
     border-radius: 25px;
     padding: 10px;
+
+}
+
+
+.postHeaderText {
+    font-size: 35px;
+    text-shadow: 2px;
+    color: rgb(61, 61, 61);
+}
+.adminPostForm {
+    margin-right:40px;
+    height:400px;
+    font-size: 15px;
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.UpdateProductsDiv {
+    width: 600px;
+    font-size: 15px;
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 10px;
+}
+
+
+.AppDivAdminProfile {
+    margin-top:40px;
+    margin-left:200px;
+    margin-right:200px;
+    display:flex;
+    flex-direction: row;
+   
+
 
 }
