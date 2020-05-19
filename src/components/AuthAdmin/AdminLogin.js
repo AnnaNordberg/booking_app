@@ -57,7 +57,7 @@ onSubmitLogin(e){
  }
     render(){
         return(
-          <div className="body">
+          
           
             <div className="AppDiv">
              
@@ -86,7 +86,7 @@ onSubmitLogin(e){
                     
  
                     </div>
-            </div>
+            
             
             
         )

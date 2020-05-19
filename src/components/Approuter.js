@@ -2,16 +2,17 @@ import React from "react";
 
 
 import { BrowserRouter, Route, Switch} from "react-router-dom";
-import "./Style.css";
-import Booking from "./Booking";
-import Navbar from "./Navbar"
-import Form from "./Form";
-import Pagenotfound from "./Pagenotfound";
+import "../Style.css";
+import Booking from "./Pages/Booking";
+import Navbar from "./Pages/Navbar"
+import Form from "./Pages/Form";
+import Pagenotfound from "./Pages/Pagenotfound";
 import App from "./App";
-import Adminform from "./Adminform";
-import AdminLogin from "./Auth/AdminLogin";
-import AdminPage from "./AdminPage";
-import FirebaseTest from "./FirebaseTest";
+import AdminPage from "./AuthAdmin/AdminPage";
+import FirebaseTest from "./Firebase/FirebaseTest";
+import UserPage from "./AuthUser/UserPage";
+import Contact from "./Pages/Contact";
+
 
 
 const Approute = ()=>{
@@ -27,9 +28,10 @@ const Approute = ()=>{
                  <Route path="/" component={App} exact ></Route>
                  <Route path="/Booking" component= {Booking} exact></Route>
                  <Route path="/Form" exact component= {Form}></Route>
-                 {/* <Route path="/Admin" exact component= {Adminform}></Route>  */}
                  <Route path="/AdminPage" exact component={AdminPage}></Route>
                  <Route path="/FirebaseTest" exact component={FirebaseTest}></Route>
+                 <Route path="/Userpage" exact component= {UserPage}></Route>
+                 <Route path="/Contact" exact component= {Contact}></Route>
                  <Route component={Pagenotfound}></Route>
                  
                  </Switch>

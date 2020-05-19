@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import AdminProfile from "./Auth/AdminProfile";
-import AdminLogin from "./Auth/AdminLogin";
+import AdminProfile from "./AdminProfile";
+import AdminLogin from "./AdminLogin";
 
 
 class AdminPage extends Component {
@@ -21,7 +21,7 @@ class AdminPage extends Component {
 
         const loggedIn = this.state.user || localStorage.getItem("jwt");
         return (
-            <div>
+            <div className="AppDiv">
                 {!loggedIn ?
                     <AdminLogin userCredential={this.callback.bind(this)} /> :
                     <AdminProfile userData={this.state.user} />

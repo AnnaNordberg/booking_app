@@ -34,7 +34,7 @@ class Adminform extends Component {
 
   render() {
     return (
-      <div className="body">
+      
       <div className="AppDiv">
       <div className="AdminFormDiv"> 
         <h1>Hello Admin!</h1>
@@ -49,7 +49,7 @@ class Adminform extends Component {
         
         </div>
       </div>
-      </div>
+      
     );
   }
 }

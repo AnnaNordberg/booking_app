@@ -1,9 +1,36 @@
-.body {
+
+
+body {
     background-color: rgb(246, 246, 246);
     display: flex;
     flex-wrap: wrap;
     
 }
+
+
+Header {
+    position: relative;
+    width:1200px;
+    height:350px;
+    background-image: url(https://images.pexels.com/photos/1835712/pexels-photo-1835712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    opacity: 0.9
+    
+}
+
+.HeaderText {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:70px;
+    letter-spacing: 20px;
+}
+
 
 .AppDiv {
     font-family: Arial, Helvetica, sans-serif;
@@ -31,7 +58,6 @@
 input {
     display: flex;
     flex-direction: column;
-    border-radius: 25px;
     padding: 5px;
     margin:20px;
 }
@@ -89,6 +115,40 @@ input {
     display:flex;
     flex-direction: row;
    
+}
 
+.UserLoginDiv {
+    margin-top:40px;
+    display:flex;
+    flex-direction: row;
+    
+    
+    
+    
+    
+}
 
+.UserLoginForm {
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom:30px;
+}
+
+.UserResetDiv {
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 20px;
+    margin-bottom:30px;
+}
+
+.ContactFormDiv {
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom:30px;
 }
