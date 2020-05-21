@@ -8,11 +8,13 @@ class Header extends Component {
 
 render(){
     return(
-        <body>
+        
+             
         <header>
            <h1 className="HeaderText">Header text</h1>
         </header>
-        </body>
+       
+        
     )
 }
 }

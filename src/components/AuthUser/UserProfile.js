@@ -1,12 +1,8 @@
-// testa skapa:  Dashboard
-//admin profile
+
 import React, {Component} from "react";
 
 import firebase from "../Firebase/FirebaseConfig";
-
-//navigate("/userprofile")
-
-
+import UserBookings from "../Pages/UserBookings";
 
 class UserProfile extends Component{
     
@@ -18,23 +14,29 @@ class UserProfile extends Component{
     }
 
 
-deleteAccount(){
-    const userfromLocal = localStorage.getItem("user");
-    console.log(userfromLocal);
-    var user = firebase.auth().currentUser;
-    console.log(user);
+    deleteAccount(){
+        var user = firebase.auth().currentUser;
 
-   user.delete().then(function() {
-  // User deleted.
-}).catch(function(error) {
-  // An error happened.
-});
+        if(user){
+            user.delete().then(function() {
+        // User deleted.
+            localStorage.clear();
+            window.location.reload(false);
+            console.log("User deleted");
+        }).catch(function(error) {
+        // An error happened.
+        console.log("Error");
+        });
 
-}
+        }
+    }
+
     render(){
         return(
             <div className="AppDiv">
                 <h3>Welcome {this.props.userData}!</h3>
+
+                <UserBookings/>
 
                 <button className="btn btn-primary" onClick={this.deleteAccount.bind(this)}> Radera konto</button>
                  <button className="btn btn-primary" onClick={this.logOut.bind(this)}> Logout</button>

@@ -1,15 +1,31 @@
 import React, {Component} from "react";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from "../Firebase/FirebaseConfig";
 import Header from "../Pages/Header";
 
 
 class UserLogin extends Component {
 
-//via props
  state= {
      condition:true, 
      user:""
  }
+
+
+uiConfig = {
+  // Popup signin flow rather than redirect flow.
+  signInFlow: 'popup',
+  // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+  signInSuccessUrl:'/userprofile',
+  // We will display Google and Facebook as auth providers.
+  signInOptions: [
+    //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    //firebase.auth.TwitterAuthProvider.PROVIDER_ID, 
+    //firebase.auth.PhoneAuthProvider.PROVIDER_ID
+  ]
+};
+
  onClickRegister(){
      this.setState({condition:false})
  }
@@ -29,11 +45,9 @@ const password = e.target.elements.password.value;
     .then((res)=>{
 
      this.props.userCredential(res.user.email);
-     this.props.userCredential(res.user.displayName)
+     console.log(res.user.displayName);
     
     })
-    
-    
 }
 
 
@@ -48,27 +62,15 @@ const password = e.target.elements.password.value;
      .auth()
      .createUserWithEmailAndPassword(email, password)
      .then( (res)=>{
-
          res.user.sendEmailVerification()
          this.props.userCredential(res.user.email)
          this.props.showDisplayName(displayName)
      })
-     //.then(()=>{
-     /*      firebase.auth().onAuthStateChanged((user)=>{
-            user.updateProfile({
-         displayName :username
-     })
-  console.log("display name"+ this.state.displayName)}) */
-    // })
-
- // aktivera verifering av email
- 
  }
 
-
  resetPassword(e){
-     var auth = firebase.auth();
-var emailAddress = e.target.elements.resetEmail.value;
+    var auth = firebase.auth();
+    var emailAddress = e.target.elements.resetEmail.value;
 
 auth.sendPasswordResetEmail(emailAddress).then(function() {
   // Email sent.
@@ -91,6 +93,11 @@ e.preventDefault();
                     <input type="password" placeholder="password" name="password" />
                     <button className="btn btn-primary">Login</button>  
                 </form>
+
+        <div>
+        <StyledFirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()}/>
+        </div>
+
             </div>
         <div className="UserResetDiv">    
              <h2>Forgot your password?</h2>

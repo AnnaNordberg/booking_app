@@ -3,18 +3,30 @@ import firebase from "../Firebase/FirebaseConfig";
 
 class Contact extends Component{
 
+    state={
+        condition: true,
+        user:""
+    }
+
 
 onSubmitForm(e){
     e.preventDefault();
 
     const db = firebase.firestore();
-    const docRef = db.collection("contact").doc("messages");
-    
-    docRef.set({   
-        username : e.target.elements.username.value,
-        email : e.target.elements.email.value,
-        message : e.target.elements.message.value
-    })
+    const loggedIn = firebase.auth().currentUser.uid;
+    if (!loggedIn) {
+        console.log("please log in first")
+    } else {
+        db.collection("contact")
+        .doc(firebase.auth().currentUser.uid.toString())
+        .set({
+            username : e.target.elements.username.value,
+            email : e.target.elements.email.value,
+            message : e.target.elements.message.value
+        })
+
+        console.log("Message sent")
+    }
 }
     render(){
         return(

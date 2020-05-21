@@ -48,9 +48,9 @@ class Form extends Component {
             <div className="AppDiv">
                 <h1>Book an appointment here!</h1>
                 <form onSubmit={this.handleOnSubmit}>
-                    <input type={"text"} placeholder={"ange ditt name"} onChange={this.handleOnChangeName}></input>
-                    <input type={"text"} placeholder={"ange önskat datum"} onChange={this.handleOnChangeTime}></input>
-                    <input type={"number"} placeholder={"ange telefon nummer"} onChange={this.handleOnChangeMobile}></input>
+                    <input type={"text"} placeholder={"enter your name"} onChange={this.handleOnChangeName}></input>
+                    <input type={"text"} placeholder={"enter the desired date"} onChange={this.handleOnChangeTime}></input>
+                    <input type={"number"} placeholder={"enter your phonenumber"} onChange={this.handleOnChangeMobile}></input>
                     <button className="btn btn-primary" type={"submit"} onSubmit={this.handleOnSubmit}>Confirm</button>
                 </form>
                 

@@ -27,7 +27,7 @@ class App extends Component {
                  <div className="body">
                   <div className="AppDiv">
                         
-                        <Header></Header>      
+                        <Header/>      
 
                               {this.state.products.map((product) =>
                                     <Card

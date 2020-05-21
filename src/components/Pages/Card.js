@@ -6,9 +6,15 @@ import "../../Style.css";
 
 class Card extends Component {
 
+    state = {
+        user: null || localStorage.getItem("user"),
+        displayName: ""
+
+    }
+
     onClickSaveToFireStore(){
 
-       const docRef= firebase.firestore().collection("booking").doc(this.props.docId.toString())
+       const docRef= firebase.firestore().collection("booking").doc(firebase.auth().currentUser.uid.toString())
 
        docRef.set({
            name: this.props.title,
@@ -18,8 +24,29 @@ class Card extends Component {
      
 
     }
+
+
+    componentDidMount(){
+        firebase.auth()
+        .onAuthStateChanged(
+
+            user=>{ if(user) { this.setState({
+
+            user: user.email, 
+            displayName: user.displayName
+
+            })} else {
+
+            this.setState({user: localStorage.getItem("user")})
+            } 
+
+            }
+
+        )
+    }
     
     render(){
+        const loggedIn = this.state.user || localStorage.getItem("user");
     return (
         <div className="CardDiv">   
         <div className={"card"} style={{ width: "20rem" ,height: "28rem" }}>
@@ -27,7 +54,15 @@ class Card extends Component {
             <div className={"card-body"}>
                 <h5 className={"card-title"}> {this.props.title}</h5>
                 <p className={"card-text"}>{this.props.description} </p>
-                <button className={"btn btn-primary"} onClick={this.onClickSaveToFireStore.bind(this)}>Reserve</button>
+        {!loggedIn ?
+        (<button className={"btn btn-primary"} >Sign in first</button>)
+        : 
+        (<button className={"btn btn-primary"} onClick={this.onClickSaveToFireStore.bind(this)}>Reserve</button>) 
+    
+    } 
+        
+               
+                
                 <span>{this.props.price}</span>
             </div>
         </div>

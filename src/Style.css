@@ -10,7 +10,7 @@ body {
 
 Header {
     position: relative;
-    width:1200px;
+    width:1300px;
     height:350px;
     background-image: url(https://images.pexels.com/photos/1835712/pexels-photo-1835712.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
     background-repeat: no-repeat;
@@ -39,9 +39,6 @@ Header {
     margin-left: auto;
     display: flex;
     flex-wrap: wrap;
-
-    
-    
 }
 
  .CardDiv {
@@ -81,7 +78,6 @@ input {
     padding: 10px;
 
 }
-
 
 .postHeaderText {
     font-size: 35px;
@@ -145,6 +141,15 @@ input {
 }
 
 .ContactFormDiv {
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom:30px;
+}
+
+.myBookingsDiv {
     border: 2px solid rgb(228, 224, 224);
     box-shadow: 5px 10px rgb(228, 224, 224);
     border-radius: 25px;
