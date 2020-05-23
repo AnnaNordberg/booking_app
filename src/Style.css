@@ -157,3 +157,12 @@ input {
     margin-top: 50px;
     margin-bottom:30px;
 }
+
+.myMessageDiv {
+    border: 2px solid rgb(228, 224, 224);
+    box-shadow: 5px 10px rgb(228, 224, 224);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom:30px;
+}

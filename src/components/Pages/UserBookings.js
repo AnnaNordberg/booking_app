@@ -37,18 +37,23 @@ class UserBookings extends Component {
 
         })  
 }
+
+
               
   render() {
     return (
         <div className="AppDiv">
-              <button id="btn_booking" className="btn btn-primary" onClick= {this.onClickGetBookings.bind(this)}>Show my Bookings!</button>
+              
             <div className="myBookingsDiv">  
+            <button id="btn_booking" className="btn btn-primary" onClick= {this.onClickGetBookings.bind(this)}>Show my Bookings!</button>
             <div className="get_booking" id="get_booking"> 
             <h3 className="title"></h3>
             <p className="description"></p>
             <p className="price"></p>
             </div>
             </div>
+
+
             </div>
     )
     }
