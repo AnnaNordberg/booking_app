@@ -166,3 +166,17 @@ input {
     margin-top: 50px;
     margin-bottom:30px;
 }
+
+.btnDelete {
+    background: rgb(243, 26, 26);
+    position: absolute;
+    top:11px;
+    right: 180px;
+}
+
+.btnLogout {
+    position: absolute;
+    top:11px;
+    right: 80px;
+}
+

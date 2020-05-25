@@ -10,10 +10,12 @@ class AdminLogin extends Component {
  }
  onClickRegister(){
      this.setState({condition:false})
+
  }
  
  onClickLogin(){
     this.setState({condition:true})
+    
  }
 onSubmitLogin(e){
     e.preventDefault();
@@ -49,6 +51,7 @@ onSubmitLogin(e){
     console.log('User profile', response.data.user);
     console.log('User token', response.data.jwt);
     this.props.userCredential(response.data.user, response.data.jwt)
+    
   })
   .catch(error => {
     // Handle error.
@@ -65,7 +68,7 @@ onSubmitLogin(e){
          {this.state.condition  && <form   onSubmit={this.onSubmitLogin.bind(this)}>
                     <input type="email"   name="email" placeholder="your email"/>
                     <input type="password" name="password" placeholder="your password" />
-                    <button className="btn btn-primary" onClick={this.onClickLogin.bind(this)}>Login</button>
+                    <button className="btn btn-primary"  onClick={this.onClickLogin.bind(this)}>Login</button>
                     
                 </form>}
                
@@ -82,7 +85,7 @@ onSubmitLogin(e){
  
 
 
-                    <button className="btn btn-primary" onClick={this.onClickRegister.bind(this)}>Don't have an account?</button>
+                    <button className="btn btn-primary" id="btn_account" onClick={this.onClickRegister.bind(this)}>Don't have an account?</button>
                     
  
                     </div>

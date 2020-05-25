@@ -4,6 +4,7 @@ import React, {Component} from "react";
 import firebase from "../Firebase/FirebaseConfig";
 import UserBookings from "../Pages/UserBookings";
 import UserMessage from "../Pages/UserMessage";
+import UserUpdate from "../Pages/UserUpdate";
 
 class UserProfile extends Component{
     
@@ -36,12 +37,14 @@ class UserProfile extends Component{
         return(
             <div className="AppDiv">
                 <h3>Welcome {this.props.userData}!</h3>
-                <button className="btn btn-primary" onClick={this.deleteAccount.bind(this)}> Radera konto</button>
-                <button className="btn btn-primary" onClick={this.logOut.bind(this)}> Logout</button>
+                <button className="btn btn-primary btnDelete" onClick={this.deleteAccount.bind(this)}> Delete account</button>
+                <button className="btn btn-primary btnLogout" onClick={this.logOut.bind(this)}> Logout</button>
 
                 <UserBookings/>
 
                 <UserMessage/>
+
+               {/*  <UserUpdate/> */}
 
                 
                  

@@ -44,7 +44,7 @@ class AdminProfile extends Component {
         return (
                                
             <div className="body">     
-            <h3>   Welcome {this.props.userData}! <button className="btn btn-primary logoutbtn" onClick={this.logOut.bind(this)}> Log out</button> </h3>   
+            <h3>   Welcome {this.props.userData}! <button className="btn btn-primary btnLogout" onClick={this.logOut.bind(this)}> Logout</button> </h3>   
             
             <div className="AppDivAdminProfile">  
                         <div className="adminPostForm">

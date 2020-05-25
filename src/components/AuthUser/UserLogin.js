@@ -19,7 +19,7 @@ uiConfig = {
   signInSuccessUrl:'/userprofile',
   // We will display Google and Facebook as auth providers.
   signInOptions: [
-    //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
     //firebase.auth.TwitterAuthProvider.PROVIDER_ID, 
     //firebase.auth.PhoneAuthProvider.PROVIDER_ID
@@ -82,7 +82,8 @@ e.preventDefault();
         return(
             
             <div> 
-             <Header></Header>    
+             <Header></Header> 
+          <div className="userPageDiv">      
            <div className="UserLoginDiv">       
          {this.state.condition  &&
          <div> 
@@ -131,12 +132,13 @@ e.preventDefault();
                 
                 }
          </div>
+         </div>
 
 {/* <button onClick={this.onClickRegister.bind(this)}>Don't have an account?</button> */}
 <button className="btn btn-primary" onClick={this.onClickLogin.bind(this)}>Login</button>
 <button className="btn btn-primary" onClick={this.onClickRegister.bind(this)}>Register</button>
                 
-
+            
             </div>
         )
     }

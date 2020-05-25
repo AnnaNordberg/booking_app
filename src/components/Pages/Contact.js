@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import firebase from "../Firebase/FirebaseConfig";
+import Header from "../Pages/Header";
 
 class Contact extends Component{
 
@@ -31,6 +32,7 @@ onSubmitForm(e){
     render(){
         return(
                <div className="AppDiv">
+               <Header/>    
                <div className="ContactFormDiv">    
                   <h3>Got a question? Contact us!</h3> 
                     <form onSubmit={this.onSubmitForm.bind(this)}>

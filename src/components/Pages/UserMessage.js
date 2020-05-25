@@ -20,7 +20,6 @@ class UserMessage extends Component{
                 var btn_message = document.getElementById('btn_message')
                 getMessage.querySelector(".username").innerHTML = contact.data().username;
                 getMessage.querySelector(".message").innerHTML = contact.data().message;
-                //getBooking.querySelector(".price").innerHTML = booking.data().price;
       
                 console.log("Message excists!", contact.data())
                 btn_message.remove()
