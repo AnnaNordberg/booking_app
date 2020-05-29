@@ -14,7 +14,6 @@ render(){
            <h1 className="HeaderText">Header text</h1>
         </header>
        
-        
     )
 }
 }
