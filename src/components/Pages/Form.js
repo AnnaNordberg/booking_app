@@ -31,12 +31,8 @@ class Form extends Component {
     }
 
 
-
-    //skapa en metod 
     handleOnSubmit(e) {
         e.preventDefault()
-
-
         
     }
    

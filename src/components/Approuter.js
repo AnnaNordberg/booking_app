@@ -12,6 +12,7 @@ import AdminPage from "./AuthAdmin/AdminPage";
 import FirebaseTest from "./Firebase/FirebaseTest";
 import UserPage from "./AuthUser/UserPage";
 import Contact from "./Pages/Contact";
+import Card from "./Pages/Card";
 
 
 
@@ -26,6 +27,7 @@ const Approute = ()=>{
                  <Navbar/>
                  <Switch>
                  <Route path="/" component={App} exact ></Route>
+                 <Route path="/Card" component= {Card} exact></Route>
                  <Route path="/Booking" component= {Booking} exact></Route>
                  <Route path="/Form" exact component= {Form}></Route>
                  <Route path="/AdminPage" exact component={AdminPage}></Route>
