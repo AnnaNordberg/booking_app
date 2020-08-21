@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Modal from "react-modal";
+import "../../Style.css";
 
 const customStyles = {
   content : {
-    background: "#e6e6e6",
+    background: "white",
     top                   : '50%',
     left                  : '50%',
     right                 : 'auto',
@@ -18,8 +19,8 @@ const customStyles = {
 export default class BookingForm extends Component {
 
     state = {
-            name: "Ange ditt namn",
-            appointmentTime: "till ex. 10.00",
+            name: "enter your name",
+            appointmentTime: "enter a time",
             mobile: "x7x0000000"
         }
 
@@ -40,17 +41,17 @@ handleOnChange = (e)=>{
                 <Modal 
           isOpen={this.props.openModal}
           onRequestClose={this.props.closeModal}
+          ariaHideApp={false}
           style={customStyles}
           contentLabel="Boking form" >
-          <h2 >Booking form</h2>
-          <button onClick={this.props.closeModal}>close</button>
-          <div>Ange bookning information</div>
-
+          <h2 >Make a booking</h2>
+          <button className="btn btn-primary" onClick={this.props.closeModal}>close</button>
+          <div>Please enter your booking information</div>
                 <form onSubmit={this.handleOnSubmit.bind(this)}>
                     <input value={this.state.name} onChange={this.handleOnChange} type={"text"}   name={"name"}></input>
                     <input value={this.state.appointmentTime} onChange={this.handleOnChange} type={"text"}  name={"appointmentTime"}></input>
-                    <input value={this.state.mobile}  onChange={this.handleOnChange} type={"number"}  name={"mobile"}></input>
-                    <button onClick={this.props.closeModal}>Bekräfta</button>
+                    <input value={this.state.mobile} onChange={this.handleOnChange} placeholder="phonenumber" type={"number"}  name={"mobile"}></input>
+                    <button className="btn btn-primary" onClick={this.props.closeModal}>Confirm</button>
                 </form>
                  </Modal>
             </div>
